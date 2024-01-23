@@ -1,5 +1,7 @@
 .app-style {
   padding: 20px;
+  min-width: 800px;
+  max-width: 1200px;
 }
 .headerStyle {
   height: 50px;
