@@ -31,10 +31,12 @@ const App = () => {
       id: cards.length + 1,
       title,
       text,
+      isDone: false,
     };
     setCards([...cards, newCards]);
     setTitle("");
     setText("");
+    console.log(newCards);
   };
 
   //card 삭제하기 버튼
@@ -48,12 +50,10 @@ const App = () => {
   const updateCard = (id) => {
     const updatedTodos = cards.map((card) => {
       if (card.id === id) {
-        return { ...card, isDone: !card.isDone };
-      } else {
-        return { ...card };
+        return (card.isDone = !card.isDone);
       }
+      console.log(card.isDone);
     });
-
     setCards(updatedTodos);
   };
 
@@ -62,26 +62,34 @@ const App = () => {
       <h1 className="headerStyle">My To-Do List</h1>
       <div className="inputStyle">
         <div>
-          제목 &nbsp;
-          <input value={title} onChange={addTitleHandler} />
-          &nbsp; 내용 &nbsp;
-          <input value={text} onChange={addTextHandler} />
+          Title &nbsp;
+          <input
+            className="titleClass"
+            value={title}
+            onChange={addTitleHandler}
+          />
+          &nbsp; Content &nbsp;
+          <input className="textClass" value={text} onChange={addTextHandler} />
         </div>
-        <button className="addBtn" onClick={addClickBtn}>
-          추가하기
+        <button
+          id="addBtn"
+          onClick={addClickBtn}
+          type="button"
+          className="btn btn-outline-dark"
+        >
+          Add
         </button>
       </div>
       <WorkingCards
         cards={cards}
         removeCardBtn={removeCardBtn}
         updateCard={updateCard}
-        isDone={false}
       />
+
       <DoneCards
         cards={cards}
         removeCardBtn={removeCardBtn}
         updateCard={updateCard}
-        isDone={true}
       />
     </div>
   );
