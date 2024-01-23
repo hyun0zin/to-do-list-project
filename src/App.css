@@ -1,5 +1,11 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .app-style {
   padding: 20px;
+
   min-width: 800px;
   max-width: 1200px;
 }
@@ -49,16 +55,13 @@
   width: 100px;
 }
 
-.workingCards {
-  display: flex;
+.card-container {
   gap: 20px;
   padding: 10px;
-}
 
-.doneCards {
   display: flex;
-  gap: 20px;
-  padding: 10px;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .cardList {
@@ -67,4 +70,9 @@
 
   width: 300px;
   padding: 20px;
+  margin: 10px;
+}
+
+.cardSection {
+  margin: 20px;
 }

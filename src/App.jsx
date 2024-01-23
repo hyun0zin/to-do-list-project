@@ -5,10 +5,12 @@ import TodoController from "component/todo/TodoController";
 
 const App = () => {
   return (
-    <div className="app-style">
-      <TodoHeader />
-      <TodoController />
-    </div>
+    <>
+      <div className="app-style">
+        <TodoHeader />
+        <TodoController />
+      </div>
+    </>
   );
 };
 
