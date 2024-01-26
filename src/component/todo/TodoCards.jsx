@@ -19,7 +19,7 @@ const TodoCards = ({ item, removeCardBtn, updateCardBtn }) => {
         className="btn btn-success"
         onClick={() => updateCardBtn(id)}
       >
-        {isDone ? "Cancle" : "Done"}
+        {isDone ? "Cancel" : "Done"}
       </button>
     </div>
   );
