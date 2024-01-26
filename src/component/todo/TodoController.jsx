@@ -57,6 +57,11 @@ const TodoController = () => {
       return;
     }
 
+    if (!date) {
+      alert("마감기한을 입력해주세요.");
+      return;
+    }
+
     const newCards = {
       id: cards.length + 1,
       title,
@@ -67,6 +72,7 @@ const TodoController = () => {
     setCards([...cards, newCards]);
     setTitle("");
     setText("");
+    setDate();
 
     e.target.reset();
   };
