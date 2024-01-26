@@ -28,7 +28,14 @@ const TodoController = () => {
     e.preventDefault();
 
     //빈 input 추가 막기
-    if (!title || !text) {
+    if (!title && text) {
+      alert("제목을 입력해주세요.");
+      return;
+    } else if (!text && title) {
+      alert("내용을 입력해주세요.");
+      return;
+    } else if (!title && !text) {
+      alert("제목과 내용을 입력해주세요.");
       return;
     }
 
