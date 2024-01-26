@@ -6,6 +6,7 @@ const todoObj = {
   id: 1,
   title: "리액트 공부하기",
   text: "리액트 기초를 공부해봅시다.",
+  date: "2024년 1월 26일 금요일",
   isDone: false,
 };
 
@@ -14,6 +15,7 @@ const TodoController = () => {
 
   const [title, setTitle] = useState("");
   const [text, setText] = useState("");
+  const [date, setDate] = useState();
 
   const addTitleHandler = (event) => {
     setTitle(event.target.value);
@@ -21,6 +23,22 @@ const TodoController = () => {
 
   const addTextHandler = (event) => {
     setText(event.target.value);
+  };
+
+  // 날짜 추가 함수 & 날짜 type 변경
+  const addDateHandler = (event) => {
+    const numberOfDate = new Date(event.target.value);
+
+    const options = {
+      weekday: "long",
+      year: "numeric",
+      month: "numeric",
+      day: "numeric",
+    };
+
+    const changeDateType = numberOfDate.toLocaleDateString("ko-KR", options);
+    // console.log(changeDateType);
+    setDate(changeDateType);
   };
 
   // card 추가하기
@@ -43,6 +61,7 @@ const TodoController = () => {
       id: cards.length + 1,
       title,
       text,
+      date,
       isDone: false,
     };
     setCards([...cards, newCards]);
@@ -81,20 +100,23 @@ const TodoController = () => {
       <TodoForm
         addTitleHandler={addTitleHandler}
         addTextHandler={addTextHandler}
+        addDateHandler={addDateHandler}
         addSubmit={addSubmit}
       />
-      <TodoList
-        subTitle="Working...🔥"
-        cards={workingCards}
-        removeCardBtn={removeCardBtn}
-        updateCardBtn={updateCardBtn}
-      />
-      <TodoList
-        subTitle="Done🎉"
-        cards={doneCards}
-        removeCardBtn={removeCardBtn}
-        updateCardBtn={updateCardBtn}
-      />
+      <div className="section-container">
+        <TodoList
+          subTitle="Working...🔥"
+          cards={workingCards}
+          removeCardBtn={removeCardBtn}
+          updateCardBtn={updateCardBtn}
+        />
+        <TodoList
+          subTitle="Done🎉"
+          cards={doneCards}
+          removeCardBtn={removeCardBtn}
+          updateCardBtn={updateCardBtn}
+        />
+      </div>
     </main>
   );
 };

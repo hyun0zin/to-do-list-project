@@ -30,34 +30,51 @@ body {
   margin: 10px;
 }
 
+.input-box {
+  gap: 1rem;
+
+  display: flex;
+  flex-direction: row;
+}
+
 .title-class {
   border-color: transparent;
   border-radius: 5px;
+  width: 7rem;
 }
 
 .text-class {
   border-color: transparent;
   border-radius: 5px;
+  width: 7rem;
+}
+
+.date-class {
+  border-color: transparent;
+  border-radius: 5px;
+  width: 8.5rem;
 }
 
 #addBtn {
   position: absolute;
   right: 50px;
   border-radius: 10px;
-  width: 100px;
+  width: 5rem;
 }
 
 .button-container {
   display: flex;
   justify-content: space-between;
+
+  gap: 10px;
 }
 
 #removeBtn {
-  width: 100px;
+  width: 50%;
 }
 
 #completeBtn {
-  width: 100px;
+  width: 50%;
 }
 
 .card-container {
@@ -65,7 +82,7 @@ body {
   padding: 10px;
 
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
 }
 .card-list {
@@ -78,6 +95,11 @@ body {
   width: 300px;
   padding: 20px;
   margin: 10px;
+}
+
+.section-container {
+  display: flex;
+  flex-direction: row;
 }
 
 .card-section {

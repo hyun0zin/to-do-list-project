@@ -1,9 +1,10 @@
 const TodoCards = ({ item, removeCardBtn, updateCardBtn }) => {
-  const { id, title, text, isDone } = item;
+  const { id, title, text, date, isDone } = item;
   return (
     <div key={id} className="card">
       <h2>{title}</h2>
       <p>{text}</p>
+      <p style={{ color: "red", fontWeight: "600" }}>{date}</p>
       <div className="button-container">
         <button
           id="removeBtn"
