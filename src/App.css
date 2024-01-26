@@ -9,7 +9,7 @@ body {
   min-width: 800px;
   max-width: 1200px;
 }
-.headerStyle {
+.header-style {
   height: 50px;
   text-align: center;
   display: flex;
@@ -17,7 +17,7 @@ body {
   justify-content: center;
 }
 
-.inputStyle {
+.input-style {
   background-color: rgb(235, 235, 235);
   border-radius: 20px;
   height: 75px;
@@ -30,12 +30,12 @@ body {
   margin: 10px;
 }
 
-.titleClass {
+.title-class {
   border-color: transparent;
   border-radius: 5px;
 }
 
-.textClass {
+.text-class {
   border-color: transparent;
   border-radius: 5px;
 }
@@ -45,6 +45,11 @@ body {
   right: 50px;
   border-radius: 10px;
   width: 100px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
 }
 
 #removeBtn {
@@ -63,8 +68,10 @@ body {
   flex-direction: row;
   flex-wrap: wrap;
 }
-
-.cardList {
+.card-list {
+  list-style-type: none;
+}
+.card {
   border: 5px solid rgb(155, 155, 161);
   border-radius: 10px;
 
@@ -73,6 +80,6 @@ body {
   margin: 10px;
 }
 
-.cardSection {
+.card-section {
   margin: 20px;
 }

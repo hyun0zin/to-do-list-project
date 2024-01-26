@@ -6,11 +6,11 @@ const TodoForm = ({
   addSubmit,
 }) => {
   return (
-    <form className="inputStyle" onSubmit={addSubmit}>
+    <form className="input-style" onSubmit={addSubmit}>
       Title &nbsp;
-      <input className="titleClass" value={title} onChange={addTitleHandler} />
+      <input className="title-class" value={title} onChange={addTitleHandler} />
       &nbsp; Content &nbsp;
-      <input className="textClass" value={text} onChange={addTextHandler} />
+      <input className="text-class" value={text} onChange={addTextHandler} />
       <button id="addBtn" type="submit" className="btn btn-outline-dark">
         Add
       </button>

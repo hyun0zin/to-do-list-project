@@ -2,17 +2,19 @@ import TodoCards from "./TodoCards";
 
 const TodoList = ({ cards, subTitle, removeCardBtn, updateCardBtn }) => {
   return (
-    <section className="cardSection">
+    <section className="card-section">
       <h2>{subTitle}</h2>
       <ul className="card-container">
         {cards.map(function (item) {
           return (
-            <TodoCards
-              key={item.id}
-              item={item}
-              removeCardBtn={removeCardBtn}
-              updateCardBtn={updateCardBtn}
-            />
+            <li className="card-list">
+              <TodoCards
+                key={item.id}
+                item={item}
+                removeCardBtn={removeCardBtn}
+                updateCardBtn={updateCardBtn}
+              />
+            </li>
           );
         })}
       </ul>
