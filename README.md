@@ -1,70 +1,37 @@
-# Getting Started with Create React App
+# 📝 To-do list 만들기
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Alt text](2024-01-264.42.00-ezgif.com-speed.gif)
+<br>
 
-## Available Scripts
+<div><h1>💻 STACKS</h1></div>
+<img src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=black"> 
+<img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"> 
+<img src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white"> 
+<img src="https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css3&logoColor=white">
 
-In the project directory, you can run:
+<br>
 
-### `npm start`
+## `페이지와 기능`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+#### 1. 제목과 내용을 입력하고 Add 버튼을 누르면 To-do가 추가된다.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+#### 2. 완료되면 `Done` 버튼을 누르면 아래로 내려가고, `Cancel`을 누르면 다시 위로 올라온다.
 
-### `npm test`
+#### 3. `Delete`를 누르면 해당 To-Do가 삭제된다.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<br>
 
-### `npm run build`
+## `컴포넌트 구조`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### `component`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Layout
+  - Header : Header를 작성하는 컴포넌트
+- todo - TodoController : TodoForm과 TodoList를 하위 컴포넌트로 가지고 있는 컴포넌트 - TodoForm : input tag가 들어 있는 컴포넌트 - TodoList : TodoCards를 하위 컴포넌트로 가지고 있는 컴포넌트 - TodoCards : Cards의 기본 html 틀을 작성하는 컴포넌트
+  <br>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## `어려웠던 점` 🧐
 
-### `npm run eject`
+- 처음에는 `App.js`에서 모든 코드를 작성하고 마지막에 컴포넌트를 분리 하였는데,컴포넌트를 분리하다보니 props를 넘겨주고 받는 과정에서 오류가 계속해서 생겼다.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+  ▶️ 해당 props를 `부모` > `자식` > `그 자식` 까지 넘겨주려면 모든 컴포넌트에 props를 할당해주어야 전달이 가능하다.
