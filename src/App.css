@@ -105,3 +105,13 @@ body {
 .card-section {
   margin: 20px;
 }
+
+/* order radio */
+.order-radio {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+
+  margin: 15px;
+  gap: 10px;
+}

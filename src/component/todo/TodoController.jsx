@@ -1,6 +1,7 @@
 import { useState } from "react";
 import TodoForm from "./TodoForm";
 import TodoList from "./TodoList";
+import TodoOrder from "./TodoOrder";
 
 const todoObj = {
   id: 1,
@@ -16,6 +17,7 @@ const TodoController = () => {
   const [title, setTitle] = useState("");
   const [text, setText] = useState("");
   const [date, setDate] = useState();
+  const [order, setOrder] = useState();
 
   const addTitleHandler = (event) => {
     setTitle(event.target.value);
@@ -32,13 +34,28 @@ const TodoController = () => {
     const options = {
       weekday: "long",
       year: "numeric",
-      month: "numeric",
+      month: "long",
       day: "numeric",
     };
 
     const changeDateType = numberOfDate.toLocaleDateString("ko-KR", options);
     // console.log(changeDateType);
     setDate(changeDateType);
+  };
+
+  // order 순으로 radio 버튼 누르면 정렬
+  const changeDateOrderHandler = () => {
+    const orderCards = cards.map((order) => {
+      // const orderDates = order.data;
+      console.log(order);
+      // const orderDates = order.sort((a, b) => {
+      //   return a.data - b.data;
+      // });
+
+      // return orderDates;
+    });
+
+    setOrder(orderCards);
   };
 
   // card 추가하기
@@ -109,6 +126,7 @@ const TodoController = () => {
         addDateHandler={addDateHandler}
         addSubmit={addSubmit}
       />
+      <TodoOrder changeDateOrderHandler={changeDateOrderHandler} />
       <div className="section-container">
         <TodoList
           subTitle="Working...🔥"
