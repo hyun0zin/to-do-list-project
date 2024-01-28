@@ -43,13 +43,24 @@ const TodoController = () => {
     setDate(changeDateType);
   };
 
-  // order 순으로 radio 버튼 누르면 정렬
-  const changeDateOrderHandler = () => {
+  // order 순으로 radio 버튼 누르면 오름차순 정렬
+  const changeDateUpOrderHandler = () => {
     const orderCards = cards.map((order) => {
-      // const orderDates = order.data;
+      // const orderDates = order.sort((a, b) => a.date - b.date);
+      console.log(order);
+      // return orderDates;
+    });
+
+    setOrder(orderCards);
+  };
+
+  // order 순으로 radio 버튼 누르면 내림차순 정렬
+  const changeDateDownOrderHandler = () => {
+    const orderCards = cards.map((order) => {
+      // const orderDates = order.date;
       console.log(order);
       // const orderDates = order.sort((a, b) => {
-      //   return a.data - b.data;
+      //   return b.date - a.date;
       // });
 
       // return orderDates;
@@ -126,7 +137,10 @@ const TodoController = () => {
         addDateHandler={addDateHandler}
         addSubmit={addSubmit}
       />
-      <TodoOrder changeDateOrderHandler={changeDateOrderHandler} />
+      <TodoOrder
+        changeDateUpOrderHandler={changeDateUpOrderHandler}
+        changeDateDownOrderHandler={changeDateDownOrderHandler}
+      />
       <div className="section-container">
         <TodoList
           subTitle="Working...🔥"

@@ -1,6 +1,10 @@
 import React from "react";
 
-function TodoOrder({ order, changeDateOrderHandler }) {
+function TodoOrder({
+  order,
+  changeDateUpOrderHandler,
+  changeDateDownOrderHandler,
+}) {
   return (
     <form className="order-radio">
       <label>
@@ -8,12 +12,17 @@ function TodoOrder({ order, changeDateOrderHandler }) {
           type="radio"
           name="option"
           value={order}
-          onChange={changeDateOrderHandler}
+          onChange={changeDateUpOrderHandler}
         />
         &nbsp; 마감 빠른순
       </label>
       <label>
-        <input type="radio" name="option" />
+        <input
+          type="radio"
+          name="option"
+          value={order}
+          onChange={changeDateDownOrderHandler}
+        />
         &nbsp; 마감 느린순
       </label>
     </form>
