@@ -7,102 +7,16 @@ const todoObj = {
   id: 1,
   title: "리액트 공부하기",
   text: "리액트 기초를 공부해봅시다.",
-  date: "2024년 1월 26일 금요일",
+  date: "2024-01-26",
   isDone: false,
 };
 
 const TodoController = () => {
   const [cards, setCards] = useState([todoObj]);
 
-  const [title, setTitle] = useState("");
-  const [text, setText] = useState("");
-  const [date, setDate] = useState();
-  const [order, setOrder] = useState();
-
-  const addTitleHandler = (event) => {
-    setTitle(event.target.value);
-  };
-
-  const addTextHandler = (event) => {
-    setText(event.target.value);
-  };
-
-  // 날짜 추가 함수 & 날짜 type 변경
-  const addDateHandler = (event) => {
-    const numberOfDate = new Date(event.target.value);
-
-    const options = {
-      weekday: "long",
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    };
-
-    const changeDateType = numberOfDate.toLocaleDateString("ko-KR", options);
-    // console.log(changeDateType);
-    setDate(changeDateType);
-  };
-
-  // order 순으로 radio 버튼 누르면 오름차순 정렬
-  const changeDateUpOrderHandler = () => {
-    const orderCards = cards.map((order) => {
-      // const orderDates = order.sort((a, b) => a.date - b.date);
-      console.log(order);
-      // return orderDates;
-    });
-
-    setOrder(orderCards);
-  };
-
-  // order 순으로 radio 버튼 누르면 내림차순 정렬
-  const changeDateDownOrderHandler = () => {
-    const orderCards = cards.map((order) => {
-      // const orderDates = order.date;
-      console.log(order);
-      // const orderDates = order.sort((a, b) => {
-      //   return b.date - a.date;
-      // });
-
-      // return orderDates;
-    });
-
-    setOrder(orderCards);
-  };
-
   // card 추가하기
-  const addSubmit = (e) => {
-    e.preventDefault();
-
-    //빈 input 추가 막기
-    if (!title && text) {
-      alert("제목을 입력해주세요.");
-      return;
-    } else if (!text && title) {
-      alert("내용을 입력해주세요.");
-      return;
-    } else if (!title && !text) {
-      alert("제목과 내용을 입력해주세요.");
-      return;
-    }
-
-    if (!date) {
-      alert("마감기한을 입력해주세요.");
-      return;
-    }
-
-    const newCards = {
-      id: cards.length + 1,
-      title,
-      text,
-      date,
-      isDone: false,
-    };
-    setCards([...cards, newCards]);
-    setTitle("");
-    setText("");
-    setDate();
-
-    e.target.reset();
+  const addSubmit = (nextCard) => {
+    setCards((cards) => [nextCard, ...cards]);
   };
 
   //card 삭제하기 버튼
@@ -126,21 +40,25 @@ const TodoController = () => {
     setCards(updatedTodos);
   };
 
+  // Todo 오름차순 정렬
+  const sortCards = (order) => {
+    const sortedCards = [...cards].sort((a, b) => {
+      if (order === "asc") {
+        return new Date(a.date) - new Date(b.date);
+      }
+      return new Date(b.date) - new Date(a.date);
+    });
+    setCards(sortedCards);
+  };
+
+  // useMemo
   const workingCards = cards.filter((card) => !card.isDone);
   const doneCards = cards.filter((card) => card.isDone);
 
   return (
     <main>
-      <TodoForm
-        addTitleHandler={addTitleHandler}
-        addTextHandler={addTextHandler}
-        addDateHandler={addDateHandler}
-        addSubmit={addSubmit}
-      />
-      <TodoOrder
-        changeDateUpOrderHandler={changeDateUpOrderHandler}
-        changeDateDownOrderHandler={changeDateDownOrderHandler}
-      />
+      <TodoForm addSubmit={addSubmit} />
+      <TodoOrder sortCards={sortCards} />
       <div className="section-container">
         <TodoList
           subTitle="Working...🔥"

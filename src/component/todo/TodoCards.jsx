@@ -1,10 +1,30 @@
 const TodoCards = ({ item, removeCardBtn, updateCardBtn }) => {
   const { id, title, text, date, isDone } = item;
+
+  /* Date type 변경하기 */
+  const numberOfDate = new Date(date);
+  const options = {
+    weekday: "short",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  };
+  const changeDateType = numberOfDate.toLocaleDateString("ko-KR", options);
+
+  // const formattedDeadline = new Date(date).toLocaleDateString("ko-KR", {
+  //   year: "numeric",
+  //   month: "long",
+  //   day: "numeric",
+  //   weekday: "long",
+  // });
+
   return (
-    <div key={id} className="card">
+    <li key={id} className="card">
       <h2>{title}</h2>
       <p>{text}</p>
-      <p style={{ color: "red", fontWeight: "600" }}>{date}</p>
+      <p style={{ color: "red", fontWeight: "600" }}>
+        DEADLINE : {changeDateType}
+      </p>
       <div className="button-container">
         <button
           id="removeBtn"
@@ -24,7 +44,7 @@ const TodoCards = ({ item, removeCardBtn, updateCardBtn }) => {
           {isDone ? "Cancel" : "Done"}
         </button>
       </div>
-    </div>
+    </li>
   );
 };
 

@@ -85,10 +85,9 @@ body {
   flex-direction: column;
   flex-wrap: wrap;
 }
-.card-list {
-  list-style-type: none;
-}
+
 .card {
+  list-style-type: none;
   border: 5px solid rgb(155, 155, 161);
   border-radius: 10px;
 

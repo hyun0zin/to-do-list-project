@@ -5,16 +5,14 @@ const TodoList = ({ cards, subTitle, removeCardBtn, updateCardBtn }) => {
     <section className="card-section">
       <h2>{subTitle}</h2>
       <ul className="card-container">
-        {cards.map(function (item) {
+        {cards.map(function (todo) {
           return (
-            <li className="card-list">
-              <TodoCards
-                key={item.id}
-                item={item}
-                removeCardBtn={removeCardBtn}
-                updateCardBtn={updateCardBtn}
-              />
-            </li>
+            <TodoCards
+              key={todo.id}
+              item={todo}
+              removeCardBtn={removeCardBtn}
+              updateCardBtn={updateCardBtn}
+            />
           );
         })}
       </ul>
