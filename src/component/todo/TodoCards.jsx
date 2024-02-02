@@ -1,3 +1,30 @@
+import styled from "styled-components";
+
+const StLi = styled.li`
+  list-style-type: none;
+  border: 5px solid rgb(155, 155, 161);
+  border-radius: 10px;
+
+  width: 300px;
+  padding: 20px;
+  margin: 10px;
+`;
+
+const StDiv = styled.div`
+  display: flex;
+  justify-content: space-between;
+
+  gap: 10px;
+`;
+
+const StButton = styled.button`
+  width: 50%;
+`;
+
+const StP = styled.p`
+  text-decoration: line-through;
+`;
+
 const TodoCards = ({ item, removeCardBtn, updateCardBtn }) => {
   const { id, title, text, date, isDone } = item;
 
@@ -18,33 +45,38 @@ const TodoCards = ({ item, removeCardBtn, updateCardBtn }) => {
   //   weekday: "long",
   // });
 
+  const textDeco = () => {
+    if (isDone === false) {
+      return <p>{text}</p>;
+    } else {
+      return <StP>{text}</StP>;
+    }
+  };
   return (
-    <li key={id} className="card">
+    <StLi key={id} className="card">
       <h2>{title}</h2>
-      <p>{text}</p>
+      {textDeco()}
       <p style={{ color: "red", fontWeight: "600" }}>
         DEADLINE : {changeDateType}
       </p>
-      <div className="button-container">
-        <button
-          id="removeBtn"
+      <StDiv className="button-container">
+        <StButton
           type="button"
           className="btn btn-danger"
           onClick={() => removeCardBtn(id)}
         >
           Delete
-        </button>
+        </StButton>
         &nbsp;
-        <button
-          id="completeBtn"
+        <StButton
           type="button"
           className="btn btn-success"
           onClick={() => updateCardBtn(id)}
         >
           {isDone ? "Cancel" : "Done"}
-        </button>
-      </div>
-    </li>
+        </StButton>
+      </StDiv>
+    </StLi>
   );
 };
 
