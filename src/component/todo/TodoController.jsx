@@ -2,6 +2,12 @@ import { useState } from "react";
 import TodoForm from "./TodoForm";
 import TodoList from "./TodoList";
 import TodoOrder from "./TodoOrder";
+import styled from "styled-components";
+
+const StDiv = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
 
 const todoObj = {
   id: 1,
@@ -13,6 +19,7 @@ const todoObj = {
 
 const TodoController = () => {
   const [cards, setCards] = useState([todoObj]);
+  // console.log(cards);
 
   // card 추가하기
   const addSubmit = (nextCard) => {
@@ -59,7 +66,7 @@ const TodoController = () => {
     <main>
       <TodoForm addSubmit={addSubmit} />
       <TodoOrder sortCards={sortCards} />
-      <div className="section-container">
+      <StDiv>
         <TodoList
           subTitle="Working...🔥"
           cards={workingCards}
@@ -72,7 +79,7 @@ const TodoController = () => {
           removeCardBtn={removeCardBtn}
           updateCardBtn={updateCardBtn}
         />
-      </div>
+      </StDiv>
     </main>
   );
 };

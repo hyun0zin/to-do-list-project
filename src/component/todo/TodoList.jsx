@@ -1,10 +1,24 @@
 import TodoCards from "./TodoCards";
+import styled from "styled-components";
+
+const StSection = styled.section`
+  margin: 20px;
+`;
+
+const StUl = styled.ul`
+  gap: 20px;
+  padding: 10px;
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+`;
 
 const TodoList = ({ cards, subTitle, removeCardBtn, updateCardBtn }) => {
   return (
-    <section className="card-section">
+    <StSection>
       <h2>{subTitle}</h2>
-      <ul className="card-container">
+      <StUl className="card-container">
         {cards.map(function (todo) {
           return (
             <TodoCards
@@ -15,8 +29,8 @@ const TodoList = ({ cards, subTitle, removeCardBtn, updateCardBtn }) => {
             />
           );
         })}
-      </ul>
-    </section>
+      </StUl>
+    </StSection>
   );
 };
 

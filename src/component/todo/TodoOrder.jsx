@@ -1,3 +1,14 @@
+import styled from "styled-components";
+
+const StForm = styled.form`
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+
+  margin: 15px;
+  gap: 10px;
+`;
+
 function TodoOrder({ sortCards }) {
   // order 순으로 radio 버튼 누르면 오름차순 정렬
   const changeDateOrderHandler = (e) => {
@@ -8,7 +19,7 @@ function TodoOrder({ sortCards }) {
   };
 
   return (
-    <form className="order-radio">
+    <StForm>
       <input
         type="radio"
         name="option"
@@ -23,7 +34,7 @@ function TodoOrder({ sortCards }) {
         onChange={changeDateOrderHandler}
       />
       마감 느린순
-    </form>
+    </StForm>
   );
 }
 
