@@ -6,7 +6,7 @@ import styled from "styled-components";
 
 const StDiv = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 `;
 
 const todoObj = {
