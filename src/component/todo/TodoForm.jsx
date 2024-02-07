@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { CardContext } from "context/CardContext";
+import { useContext, useState } from "react";
 import styled from "styled-components";
 
 const StForm = styled.form`
@@ -34,60 +35,16 @@ const StButton = styled.button`
   width: 5rem;
 `;
 
-const TodoForm = ({ addSubmit }) => {
-  const [title, setTitle] = useState("");
-  const [text, setText] = useState("");
-  const [date, setDate] = useState();
-
-  /* 제목, 내용 추가 함수 */
-  const addTitleHandler = (event) => {
-    setTitle(event.target.value);
-  };
-
-  const addTextHandler = (event) => {
-    setText(event.target.value);
-  };
-
-  /* 날짜 추가 함수 */
-  const addDateHandler = (event) => {
-    setDate(event.target.value);
-  };
-
-  /* card 추가하기 */
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    //빈 input 추가 막기
-    if (!title.trim() && text) {
-      alert("제목을 입력해주세요.");
-      return;
-    } else if (!text.trim() && title) {
-      alert("내용을 입력해주세요.");
-      return;
-    } else if (!title.trim() && !text.trim()) {
-      alert("제목과 내용을 입력해주세요.");
-      return;
-    }
-
-    if (!date) {
-      alert("마감기한을 입력해주세요.");
-      return;
-    }
-
-    addSubmit({
-      id: crypto.randomUUID(),
-      title,
-      text,
-      date,
-      isDone: false,
-    });
-
-    setTitle("");
-    setText("");
-    setDate();
-
-    e.target.reset();
-  };
+const TodoForm = () => {
+  const {
+    addDateHandler,
+    addTextHandler,
+    addTitleHandler,
+    handleSubmit,
+    title,
+    text,
+    date,
+  } = useContext(CardContext);
 
   return (
     <StForm onSubmit={handleSubmit}>

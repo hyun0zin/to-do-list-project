@@ -1,9 +1,15 @@
 const { createGlobalStyle } = require("styled-components");
 
 const GlobalStyle = createGlobalStyle`
-display: flex;
-  align-items: center;
-  justify-content: center;
+*{
+  box-sizing: border-box;
+}
+
+body{
+    font-family: "Helvetica", "Arial", sans-serif;
+    line-height: 1.5;
+    font-weight: 600;
+}
 `;
 
 export default GlobalStyle;

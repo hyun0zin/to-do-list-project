@@ -1,17 +1,19 @@
 import styled from "styled-components";
-const StH1 = styled.h1`
-  height: 50px;
-  text-align: center;
+const Header = styled.header`
   display: flex;
   align-items: center;
   justify-content: center;
 `;
+const StH1 = styled.h1`
+  height: 50px;
+  text-align: center;
+`;
 
 const TodoHeader = () => {
   return (
-    <header>
-      <StH1 className="header-style">My To-Do List</StH1>
-    </header>
+    <Header>
+      <StH1>My To-Do List</StH1>
+    </Header>
   );
 };
 

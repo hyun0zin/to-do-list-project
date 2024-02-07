@@ -1,5 +1,7 @@
+import { useContext } from "react";
 import TodoCards from "./TodoCards";
 import styled from "styled-components";
+import { CardContext } from "context/CardContext";
 
 const StSection = styled.section`
   margin: 20px;
@@ -14,20 +16,13 @@ const StUl = styled.ul`
   flex-wrap: wrap;
 `;
 
-const TodoList = ({ cards, subTitle, removeCardBtn, updateCardBtn }) => {
+const TodoList = ({ subTitle, cards }) => {
   return (
     <StSection>
       <h2>{subTitle}</h2>
       <StUl className="card-container">
         {cards.map(function (todo) {
-          return (
-            <TodoCards
-              key={todo.id}
-              item={todo}
-              removeCardBtn={removeCardBtn}
-              updateCardBtn={updateCardBtn}
-            />
-          );
+          return <TodoCards key={todo.id} item={todo} />;
         })}
       </StUl>
     </StSection>
