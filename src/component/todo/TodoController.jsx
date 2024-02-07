@@ -11,7 +11,12 @@ const StDiv = styled.div`
 `;
 
 const TodoController = () => {
-  const { cards, setCards, addSubmit } = useContext(CardContext);
+  const { cards, setCards } = useContext(CardContext);
+
+  // card 추가하기
+  const addSubmit = (nextCard) => {
+    setCards((cards) => [nextCard, ...cards]);
+  };
 
   // Todo 오름차순 정렬
   const sortCards = (order) => {

@@ -28,29 +28,26 @@ function DetailPage() {
   const params = useParams();
   const { cards, id, title, text, changeDateType } = useContext(CardContext);
 
-  //find
-  const foundData = cards.find((item) => item.id === params.id);
-  console.log(id);
-  console.log(cards);
-
   return (
     <>
-      <Container>
-        <h2>{title}</h2>
-        <p>{text}</p>
-        <p style={{ color: "red", fontWeight: "600" }}>
-          DEADLINE : {changeDateType}
-        </p>
-        <StDiv>
-          <StButton type="button" className="btn btn-danger">
-            Delete
-          </StButton>
-          &nbsp;
-          <StButton type="button" className="btn btn-success">
-            EDIT
-          </StButton>
-        </StDiv>
-      </Container>
+      {cards.find((item) => item.id === params.id) ? (
+        <Container>
+          <h2>{title}</h2>
+          <p>{text}</p>
+          <p style={{ color: "red", fontWeight: "600" }}>
+            DEADLINE : {changeDateType}
+          </p>
+          <StDiv>
+            <StButton type="button" className="btn btn-danger">
+              Delete
+            </StButton>
+            &nbsp;
+            <StButton type="button" className="btn btn-success">
+              EDIT
+            </StButton>
+          </StDiv>
+        </Container>
+      ) : null}
     </>
   );
 }

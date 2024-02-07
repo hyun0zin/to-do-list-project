@@ -36,15 +36,22 @@ const StButton = styled.button`
 `;
 
 const TodoForm = () => {
-  const {
-    addDateHandler,
-    addTextHandler,
-    addTitleHandler,
-    handleSubmit,
-    title,
-    text,
-    date,
-  } = useContext(CardContext);
+  const { setText, setTitle, setDate, handleSubmit, title, text, date } =
+    useContext(CardContext);
+
+  /* 제목, 내용 추가 함수 */
+  const addTitleHandler = (event) => {
+    setTitle(event.target.value);
+  };
+
+  const addTextHandler = (event) => {
+    setText(event.target.value);
+  };
+
+  /* 날짜 추가 함수 */
+  const addDateHandler = (event) => {
+    setDate(event.target.value);
+  };
 
   return (
     <StForm onSubmit={handleSubmit}>
