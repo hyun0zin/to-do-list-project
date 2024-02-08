@@ -1,21 +1,19 @@
 import { createContext, useState } from "react";
-
+const todoObj = {
+  id: "1",
+  title: "리액트 공부하기",
+  text: "리액트 기초를 공부해봅시다.",
+  date: "2024-01-26",
+  isDone: false,
+};
 export const CardContext = createContext(null);
 
 function CardContextProvider({ children }) {
-  const todoObj = {
-    id: 1,
-    title: "리액트 공부하기",
-    text: "리액트 기초를 공부해봅시다.",
-    date: "2024-01-26",
-    isDone: false,
-  };
-
   const [cards, setCards] = useState([todoObj]);
   //card 삭제하기 버튼
   const removeCardBtn = (id) => {
     // alert("hi");
-    const removeCards = cards.filter((card) => card.id !== id);
+    const removeCards = cards.filter((todo) => todo.id !== id);
     setCards(removeCards);
   };
 

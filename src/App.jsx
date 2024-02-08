@@ -2,12 +2,15 @@ import React from "react";
 import "./App.css";
 import GlobalStyle from "GlobalStyle";
 import Router from "shared/Router";
+import CardContextProvider from "context/CardContext";
 
 const App = () => {
   return (
     <>
-      <GlobalStyle />
-      <Router />
+      <CardContextProvider>
+        <GlobalStyle />
+        <Router />
+      </CardContextProvider>
     </>
   );
 };
