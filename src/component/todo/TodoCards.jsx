@@ -1,6 +1,6 @@
 import { CardContext } from "context/CardContext";
 import { useContext } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const StLi = styled.li`
@@ -34,11 +34,20 @@ const StP = styled.p`
   text-decoration: line-through;
 `;
 
-const TodoCards = ({ item }) => {
-  const { removeCardBtn, updateCardBtn, changeDateType } =
-    useContext(CardContext);
-  const { id, title, text, isDone } = item;
+const TodoCards = ({ todo }) => {
+  const { removeCardBtn, updateCardBtn } = useContext(CardContext);
+  const { id, title, text, date, isDone } = todo;
   const navigate = useNavigate();
+
+  /* Date type 변경하기 */
+  const numberOfDate = new Date(date);
+  const options = {
+    weekday: "short",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  };
+  const changeDateType = numberOfDate.toLocaleDateString("ko-KR", options);
 
   // const formattedDeadline = new Date(date).toLocaleDateString("ko-KR", {
   //   year: "numeric",
@@ -56,17 +65,20 @@ const TodoCards = ({ item }) => {
   };
 
   const CardClickHandler = () => {
-    if (item.id === id) {
-      navigate(`/detail/:${item.id}`);
+    if (todo.id === id) {
+      navigate(`/detail/${todo.id}`);
     }
   };
+  // console.log(todo.id);
   return (
-    <StLi key={id} onClick={CardClickHandler}>
-      <h2>{title}</h2>
-      {textDeco()}
-      <p style={{ color: "red", fontWeight: "600" }}>
-        DEADLINE : {changeDateType}
-      </p>
+    <StLi>
+      <div key={id} onClick={CardClickHandler}>
+        <h2>{title}</h2>
+        {textDeco()}
+        <p style={{ color: "red", fontWeight: "600" }}>
+          DEADLINE : {changeDateType}
+        </p>
+      </div>
       <StDiv>
         <StButton
           type="button"

@@ -1,7 +1,5 @@
-import { useContext } from "react";
-import TodoCards from "./TodoCards";
 import styled from "styled-components";
-import { CardContext } from "context/CardContext";
+import TodoCards from "./TodoCards";
 
 const StSection = styled.section`
   margin: 20px;
@@ -22,7 +20,7 @@ const TodoList = ({ subTitle, cards }) => {
       <h2>{subTitle}</h2>
       <StUl className="card-container">
         {cards.map(function (todo) {
-          return <TodoCards key={todo.id} item={todo} />;
+          return <TodoCards key={todo.id} todo={todo} />;
         })}
       </StUl>
     </StSection>
