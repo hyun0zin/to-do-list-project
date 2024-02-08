@@ -17,6 +17,13 @@
 
 #### 3. `Delete`를 누르면 해당 To-Do가 삭제된다.
 
+#### 4. 카드를 누르면 DetailPage로 이동한다. 
+
+<br>
+
+## **🌐 Vercel을 이용하여 서버 배포하기**
+https://to-do-list-project-mhqx.vercel.app/
+
 <br>
 
 ## **컴포넌트 구조**
