@@ -1,9 +1,9 @@
-import { useContext, useState } from "react";
+import { CardContext } from "context/CardContext";
+import { useContext } from "react";
+import styled from "styled-components";
 import TodoForm from "./TodoForm";
 import TodoList from "./TodoList";
 import TodoOrder from "./TodoOrder";
-import styled from "styled-components";
-import { CardContext } from "context/CardContext";
 
 const StDiv = styled.div`
   display: flex;
