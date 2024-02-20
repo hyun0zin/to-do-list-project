@@ -29,8 +29,10 @@ const StDiv = styled.div`
 const StButton = styled.button`
   width: 50%;
 `;
-
-const StP = styled.p`
+const Title = styled.h2`
+  text-decoration: line-through;
+`;
+const Content = styled.p`
   text-decoration: line-through;
 `;
 
@@ -58,9 +60,19 @@ const TodoCards = ({ todo }) => {
 
   const textDeco = () => {
     if (isDone === false) {
-      return <p>{text}</p>;
+      return (
+        <>
+          <h2>{title}</h2>
+          <p>{text}</p>
+        </>
+      );
     } else {
-      return <StP>{text}</StP>;
+      return (
+        <>
+          <Title>{title}</Title>
+          <Content>{text}</Content>
+        </>
+      );
     }
   };
 
@@ -73,7 +85,6 @@ const TodoCards = ({ todo }) => {
   return (
     <StLi>
       <div key={id} onClick={CardClickHandler}>
-        <h2>{title}</h2>
         {textDeco()}
         <p style={{ color: "red", fontWeight: "600" }}>
           DEADLINE : {changeDateType}
