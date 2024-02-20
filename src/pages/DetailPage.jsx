@@ -8,9 +8,9 @@ function DetailPage() {
   const params = useParams();
   const navigate = useNavigate();
   const { cards } = useContext(CardContext);
-  console.log(cards[0].id);
-  console.log(params.id);
-  console.log(cards);
+  // console.log(cards[0].id);
+  // console.log(params.id);
+  // console.log(cards);
 
   const todo = cards.find((todo) => todo.id === params.id);
   // console.log(todo);
@@ -30,10 +30,11 @@ function DetailPage() {
 export default DetailPage;
 
 const CardContainer = styled.div`
-  position: absolute;
+  /* position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */
+  padding: 1rem;
 `;
 
 const BackToHomeBtn = styled.button`
@@ -41,4 +42,5 @@ const BackToHomeBtn = styled.button`
   background-color: transparent;
   padding: 1rem;
   font-weight: 600;
+  font-size: larger;
 `;
